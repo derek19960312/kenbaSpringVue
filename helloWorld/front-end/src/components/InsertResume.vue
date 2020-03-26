@@ -2,7 +2,7 @@
   <div class="insertResume">
     <h1>{{ title }}</h1>
     <div>
-    <b-form @submit="onSubmit" @reset="onReset" @add="onIngredientAdd" v-if="show">
+    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
       <b-form-group
         id="input-group-1"
         label="Resume name:"
@@ -12,7 +12,7 @@
         <b-form-input
           id="resumeName"
           v-model="form.resumeName"
-          type="resumeName"
+          type="text"
           required
           placeholder="請輸入食譜名稱"
         ></b-form-input>
@@ -24,7 +24,7 @@
             {{ ingredient.name }}
           </b-list-group-item>
         </b-list-group>
-        <b-avatar icon="plus" button type="add" variant="primary"/>
+        <b-avatar icon="plus" button v-on:click="onIngredientAdd" variant="primary"/>
       </b-card>
 
       <b-button type="submit" variant="primary">送出</b-button>
