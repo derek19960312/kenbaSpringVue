@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import SiteMap from '@/components/SiteMap'
-import InsertResume from '@/components/InsertResume'
-import ReadResume from '@/components/ReadResume'
+import SiteMap from '@/pages/SiteMap'
+import InsertResume from '@/pages/InsertResume'
+import ReadResume from '@/pages/ReadResume'
 
 Vue.use(Router)
 

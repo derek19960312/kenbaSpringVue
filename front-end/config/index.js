@@ -47,7 +47,7 @@ module.exports = {
     // Template for index.html
     // ../dist/index.html
     // index: path.resolve(__dirname, '../dist/index.html'),
-    index: path.resolve(__dirname, '../../src/main/resources/static/index.html'),
+    index: path.resolve(__dirname, '../../src/main/resources/templates/index.html'),
 
     // Paths
     // ../dist
