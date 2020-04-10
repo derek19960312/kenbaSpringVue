@@ -1,5 +1,7 @@
 package com.kenba.data;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "recipe_ingredient")
-public class Recipe_Ingredient {
+public class Recipe_Ingredient implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	private Integer ingredientId;
 	@Id
