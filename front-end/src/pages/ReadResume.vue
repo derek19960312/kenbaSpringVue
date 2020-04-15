@@ -28,6 +28,11 @@ export default {
   },
   components: {
     IngredientTable
+  },
+  methods: {
+    getRecipes () {
+      this.axios.get('http://localhost:8080/recipe').then((result) => { console.log(result.data) })
+    }
   }
 }
 </script>
