@@ -15,51 +15,51 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.kenba.data.Recipe;
-import com.kenba.service.RecipeService;
+import com.kenba.data.Ingredient;
+import com.kenba.service.IngredientService;
 
 @RestController
-@RequestMapping("/recipe")
-public class RecipeController {
+@RequestMapping("/ingredient")
+public class IngredientController {
 	
 	@Autowired
-	RecipeService recipeService;
+	IngredientService ingredientService;
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Recipe> getById(@PathVariable("id") int id) {
-		Recipe recipe = recipeService.getRecipe(id);
-		return ResponseEntity.ok(recipe);
+	public ResponseEntity<Ingredient> getById(@PathVariable("id") int id) {
+		Ingredient ingredient = ingredientService.getIngredient(id);
+		return ResponseEntity.ok(ingredient);
 	}
 	
 	@GetMapping()
-	public ResponseEntity<List<Recipe>> getAll(){
-		List<Recipe> recipes = recipeService.getRecipes();
-		return ResponseEntity.ok(recipes);
+	public ResponseEntity<List<Ingredient>> getAll(){
+		List<Ingredient> ingredients = ingredientService.getIngredients();
+		return ResponseEntity.ok(ingredients);
 	}
 	
 	@PostMapping()
-	public ResponseEntity<?> create(@RequestBody Recipe recipe){
-		recipeService.saveRecipe(recipe);
+	public ResponseEntity<?> create(@RequestBody Ingredient ingredient){
+		ingredientService.saveIngredient(ingredient);
 		
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(recipe.getId())
+                .buildAndExpand(ingredient.getId())
                 .toUri();
         
-		return ResponseEntity.created(location).body(recipe);
+		return ResponseEntity.created(location).body(ingredient);
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Recipe recipe){
-		recipe.setId(id);
-		recipeService.saveRecipe(recipe);
-		return ResponseEntity.ok(recipe);
+	public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Ingredient ingredient){
+		ingredient.setId(id);
+		ingredientService.saveIngredient(ingredient);
+		return ResponseEntity.ok(ingredient);
 	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") int id){
-		recipeService.deleteRecipe(id);
+		ingredientService.deleteIngredient(id);
 		return ResponseEntity.noContent().build();
 	}
 }
