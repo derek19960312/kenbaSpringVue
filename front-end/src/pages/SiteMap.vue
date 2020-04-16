@@ -4,8 +4,8 @@
       <b-img src='../assets/logo.jpg' fluid/>
       <div class='w-100'></div>
       <div class='mt-3 mb-3'>
-          <b-button :to="{name:'InsertResume'}">InsertResume</b-button>
-          <b-button :to="{name:'ReadResume'}">ReadResume</b-button>
+          <b-button :to="{name:'InsertRecipe'}">InsertResume</b-button>
+          <b-button :to="{name:'ReadRecipe'}">ReadResume</b-button>
       </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="insertResume my-3">
+  <div class="insertRecipe my-3">
     <h1>{{ title }}</h1>
     <b-form class="m-3" @submit="onSubmit" @reset="onReset" v-if="show">
       <b-form-group
@@ -7,10 +7,10 @@
         label="食譜名稱："
         label-cols="4"
         label-cols-lg="2"
-        label-for="resumeName">
+        label-for="recipeName">
         <b-form-input
-          id="resumeName"
-          v-model="form.resumeName"
+          id="recipeName"
+          v-model="form.recipeName"
           type="text"
           required
           placeholder="請輸入食譜名稱"/>
@@ -21,7 +21,7 @@
         <b-avatar class="mx-auto mb-3" text="+" button v-on:click="onIngredientAdd" variant="primary"/>
       </b-card>
 
-      <h2>{{ form.resumeAmt }}</h2>
+      <h2>{{ form.recipeAmt }}</h2>
 
       <b-button type="submit" variant="primary">送出</b-button>
       <b-button type="reset" variant="danger">清除</b-button>
@@ -90,14 +90,14 @@
 import IngredientTable from '@/components/IngredientTable.vue'
 
 export default {
-  name: 'InsertResume',
+  name: 'InsertRecipe',
   data () {
     return {
       title: '新增食譜',
       form: {
-        resumeName: '',
+        recipeName: '',
         ingredients: [{ ingreName: '巧克力', ingreCount: '10', ingreUnit: 'g', ingreTotalPrice: '200' }],
-        resumeAmt: 0
+        recipeAmt: 0
       },
       insertIngreForm: {
         ingreName: '',
@@ -122,8 +122,8 @@ export default {
     onReset (evt) {
       evt.preventDefault()
       // Reset our form values
-      this.form.resumeName = ''
-      this.form.resumeAmt = 0
+      this.form.recipeName = ''
+      this.form.recipeAmt = 0
       this.form.ingredients = []
       // Trick to reset/clear native browser form validation state
       this.show = false
@@ -165,7 +165,7 @@ export default {
         total += Number(item.ingreTotalPrice)
       })
       console.log('total' + total)
-      this.form.resumeAmt = total
+      this.form.recipeAmt = total
     },
     validation (ingre) {
       return true

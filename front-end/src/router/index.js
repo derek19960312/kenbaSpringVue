@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import SiteMap from '@/pages/SiteMap'
-import InsertResume from '@/pages/InsertResume'
-import ReadResume from '@/pages/ReadResume'
+import InsertRecipe from '@/pages/InsertRecipe'
+import ReadRecipe from '@/pages/ReadRecipe'
 
 Vue.use(Router)
 
@@ -14,14 +14,14 @@ export default new Router({
       component: SiteMap
     },
     {
-      path: '/InsertResume',
-      name: 'InsertResume',
-      component: InsertResume
+      path: '/InsertRecipe',
+      name: 'InsertRecipe',
+      component: InsertRecipe
     },
     {
-      path: '/ReadResume',
-      name: 'ReadResume',
-      component: ReadResume
+      path: '/ReadRecipe',
+      name: 'ReadRecipe',
+      component: ReadRecipe
     }
   ]
 })

@@ -12,7 +12,7 @@ export default {
   name: 'IngredientTable',
   data () {
     return {
-      fields: [{key: 'ingreName', label: '名稱'}, {key: 'ingreCount', label: '數量'}, {key: 'ingreUnit', label: '單位'}, {key: 'ingreTotalPrice', label: '總金額'}]
+      fields: [{key: 'ingredient.name', label: '名稱'}, {key: 'riCount', label: '數量'}, {key: 'ingredient.unit', label: '單位'}, {key: 'riPrice', label: '總金額'}]
     }
   },
   props: ['items', 'tableStyle'],
