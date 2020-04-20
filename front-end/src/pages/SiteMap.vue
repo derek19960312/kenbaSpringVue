@@ -1,12 +1,11 @@
 <template>
   <div class="sitemap">
-      <h1>{{ name }}</h1>
       <b-img src='../assets/logo.jpg' fluid/>
-      <div class='w-100'></div>
+      <!-- <div class='w-100'></div>
       <div class='mt-3 mb-3'>
           <b-button :to="{name:'InsertRecipe'}">InsertResume</b-button>
           <b-button :to="{name:'ReadRecipe'}">ReadResume</b-button>
-      </div>
+      </div> -->
   </div>
 </template>
 

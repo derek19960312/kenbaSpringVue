@@ -17,6 +17,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.kenba.data.Recipe;
 import com.kenba.service.RecipeService;
+import com.kenba.utils.LogUtils;
 
 @RestController
 @RequestMapping("/recipe")
@@ -52,6 +53,7 @@ public class RecipeController {
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Recipe recipe){
+		LogUtils.d("recipe", recipe.toString());
 		recipe.setId(id);
 		recipeService.saveRecipe(recipe);
 		return ResponseEntity.ok(recipe);

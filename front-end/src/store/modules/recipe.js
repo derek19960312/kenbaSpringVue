@@ -1,5 +1,6 @@
 
-import axios from 'axios'
+import api from '@/api'
+// import axios from 'axios'
 
 // initial state
 const state = {
@@ -14,9 +15,28 @@ const getters = {
 // actions
 const actions = {
   getRecipes ({ commit }) {
-    axios.get('http://localhost:8080/recipe').then((res) => {
-      console.log(res)
-      commit('setRecipes', res.data)
+    api.get('/recipe').then((res) => {
+      commit('setRecipes', res)
+    })
+  },
+  getRecipe ({ commit }, id) {
+    api.get('/recipe/' + id).then((res) => {
+      commit('setRecipes', res)
+    })
+  },
+  createRecipe ({ commit }, recipe) {
+    api.post('/recipe', recipe).then((res) => {
+      commit('setRecipes', res)
+    })
+  },
+  updateRecipe ({ commit, dispatch }, recipe) {
+    api.put('/recipe/' + recipe.id, recipe).then((res) => {
+      dispatch('getRecipes')
+    })
+  },
+  deleteRecipe ({ commit, dispatch }, id) {
+    api.delete('/recipe/' + id).then((res) => {
+      dispatch('getRecipes')
     })
   }
 }
@@ -26,6 +46,11 @@ const mutations = {
   setRecipes (state, recipes) {
     state.recipes = recipes
   }
+  // updateRecipeData (state, field, value, id) {
+  //   Object.assign(state.recipes.find(recipe => recipe.id === id), {
+  //     [field]: value
+  //   })
+  // }
 }
 
 export default {

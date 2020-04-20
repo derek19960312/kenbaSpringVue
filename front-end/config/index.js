@@ -47,12 +47,12 @@ module.exports = {
     // Template for index.html
     // ../dist/index.html
     // index: path.resolve(__dirname, '../dist/index.html'),
-    index: path.resolve(__dirname, '../../src/main/resources/templates/index.html'),
+    index: path.resolve(__dirname, '../../back-end/src/main/resources/templates/index.html'),
 
     // Paths
     // ../dist
     // assetsRoot: path.resolve(__dirname, '../dist/'),
-    assetsRoot: path.resolve(__dirname, '../../src/main/resources/static'),
+    assetsRoot: path.resolve(__dirname, '../../back-end/src/main/resources/static'),
     assetsSubDirectory: './',
     assetsPublicPath: './',
 

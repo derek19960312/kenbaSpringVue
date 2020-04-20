@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import cloneDeep from 'lodash.clonedeep'
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -16,6 +17,8 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 
 Vue.prototype.axios = axios
+
+Vue.prototype.cloneDeep = cloneDeep
 
 Vue.config.productionTip = false
 
