@@ -16,7 +16,7 @@ spec:
     spec:                     # Spec for the containers that will be run in the Pods
       containers:
       - name: kenba-server
-        image: derek19960312/kenba-server:v3
+        image: derek19960312/kenba-server:v4
         imagePullPolicy: IfNotPresent
         ports:
           - name: http
