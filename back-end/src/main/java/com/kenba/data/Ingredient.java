@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -20,9 +21,11 @@ public class Ingredient {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotBlank(message = "名稱請勿空白")
 	@Column(name = "name")
 	private String name;
 	
+	@NotBlank(message = "單位請勿空白")
 	@Column(name = "unit")
 	private String unit;
 

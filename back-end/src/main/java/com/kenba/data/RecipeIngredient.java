@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -37,11 +39,15 @@ public class RecipeIngredient implements Serializable {
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Recipe recipe;
 
+	@NotNull(message = "數量請勿空白")
+	@Positive(message = "數量請為非0之正數")
 	@Column(name = "ri_count")
-	private String riCount;
+	private Integer riCount;
 
+	@NotNull(message = "金額請勿空白")
+	@Positive(message = "金額請為非0之正數")
 	@Column(name = "ri_price")
-	private String riPrice;
+	private Integer riPrice;
 
 	
 	public Integer getId() {
@@ -68,19 +74,19 @@ public class RecipeIngredient implements Serializable {
 		this.recipe = recipe;
 	}
 
-	public String getRiCount() {
+	public Integer getRiCount() {
 		return riCount;
 	}
 
-	public void setRiCount(String riCount) {
+	public void setRiCount(Integer riCount) {
 		this.riCount = riCount;
 	}
 
-	public String getRiPrice() {
+	public Integer getRiPrice() {
 		return riPrice;
 	}
 
-	public void setRiPrice(String riPrice) {
+	public void setRiPrice(Integer riPrice) {
 		this.riPrice = riPrice;
 	}
 	

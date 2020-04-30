@@ -3,6 +3,8 @@ package com.kenba.controller;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,7 +40,7 @@ public class IngredientController {
 	}
 	
 	@PostMapping()
-	public ResponseEntity<?> create(@RequestBody Ingredient ingredient){
+	public ResponseEntity<?> create(@Valid @RequestBody Ingredient ingredient){
 		ingredientService.saveIngredient(ingredient);
 		
         URI location = ServletUriComponentsBuilder
@@ -51,7 +53,7 @@ public class IngredientController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Ingredient ingredient){
+	public ResponseEntity<?> update(@PathVariable("id") int id, @Valid @RequestBody Ingredient ingredient){
 		ingredient.setId(id);
 		ingredientService.saveIngredient(ingredient);
 		return ResponseEntity.ok(ingredient);

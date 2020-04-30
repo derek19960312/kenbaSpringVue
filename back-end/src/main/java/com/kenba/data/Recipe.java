@@ -9,6 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 @Entity
 @Table(name = "recipe")
@@ -19,12 +24,17 @@ public class Recipe {
 	private Integer id;
 	
 	@Column(name = "name")
+	@NotBlank(message = "名稱請勿空白")
 	private String name;
 	
+	@NotNull(message = "數量請勿空白")
+	@Positive(message = "數量請為非0之正數")
 	@Column(name = "count")
 	private Integer count;
 	
 	@OneToMany(mappedBy="recipe")
+	@NotEmpty(message = "請至少輸入一項食材")
+	@Valid
 	private Set<RecipeIngredient> reciepIngredients;
 	
 	public Integer getId() {
